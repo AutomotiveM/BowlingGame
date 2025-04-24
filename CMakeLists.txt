@@ -9,14 +9,10 @@ set(CMAKE_BUILD_TYPE Debug)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Add main executable
-add_executable(BowlingGame
-    src/main.cpp
-    src/MyPlayer.cpp
-    src/BowlingFrames.cpp
-    include/BowlingFrames.h
-    include/MyPlayer.h
-    include/Constants.h
-)
+add_executable(BowlingGame 
+src/main.cpp
+src/MyPlayer.cpp
+src/BowlingFrames.cpp "include/BowlingGame.h" "src/BowlingGame.cpp")
 
 # Add GoogleTest
 # add_subdirectory(googletest)
