@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "MyPlayer.h"
@@ -15,7 +14,7 @@ namespace BowlingGameNM
 		/*
 	   \brief	start the bowling game
 	   \author	AM
-	   \param	Driver code 
+	   \param	Driver code
 	   \return None
 	   */
 		void run();

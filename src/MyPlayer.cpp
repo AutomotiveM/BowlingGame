@@ -1,6 +1,5 @@
 #include "../include/MyPlayer.h"
 #include "../include/Constants.h"
-
 /*
 */
 BowlingGameNM::Players::Player::Player() : m_finalScore{0}, m_Name{}, m_frameNumber{0}
@@ -45,7 +44,7 @@ const uint16_t & BowlingGameNM::Players::Player::calculateFrameScore()
     calculateFirstNineFrameScore(frameNumber);
     calculateTenthScore(frameNumber);
     frameNumber++;
-    calculateFinalFrameScore(frameNumber);
+    calculateFinalScore(frameNumber);
 
     return m_finalScore;
 }
@@ -55,6 +54,16 @@ Getter function for Final score
 const uint16_t & BowlingGameNM::Players::Player::getFinalScore()
 {
 	return m_finalScore;
+}
+
+/*
+Getter function for Final score
+*/
+void BowlingGameNM::Players::Player::resetFinalScore()
+{
+    m_finalScore = 0;
+    m_frameNumber = 0;
+    
 }
 
 /*
@@ -114,7 +123,7 @@ void BowlingGameNM::Players::Player::getThrowScore()
 
 /*
 */
-bool BowlingGameNM::Players::Player::setthrowValue(const uint16_t &throwNumber, const uint16_t &frameIndex, const uint16_t &Score)
+bool BowlingGameNM::Players::Player::setAllthrowValue(const uint16_t &throwNumber, const uint16_t &frameIndex, const uint16_t &Score)
 {
     bool flag{false};
     if (frameIndex < 0 || frameIndex >= MAX_NUMBER_OF_FRAME)
@@ -168,7 +177,7 @@ void BowlingGameNM::Players::Player::calculateFirstNineFrameScore(uint16_t& fram
 {
     for (; frameIndex < (MAX_NUMBER_OF_FRAME - 2); frameIndex++)
     {
-        m_finalScore += m_frames[frameIndex]->getFirstThrowScore(); // get first rool score
+        m_finalScore += m_frames[frameIndex]->getFirstThrowScore(); // get first throw score
         if (m_frames[frameIndex]->isStrike())
         {
             m_finalScore += m_frames[frameIndex + 1]->getFirstThrowScore(); // if strike, next roll score from next frame
@@ -230,7 +239,7 @@ BowlingGame~COD~Trace
 @VRF_SRS: NA
 @VRF_SDD: NA
 */
-void BowlingGameNM::Players::Player::calculateFinalFrameScore(uint16_t& frameIndex)
+void BowlingGameNM::Players::Player::calculateFinalScore(uint16_t& frameIndex)
 {
     if (frameIndex == MAX_NUMBER_OF_FRAME - 1)
     {

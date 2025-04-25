@@ -9,11 +9,11 @@ BowlingGameNM::Frame::Frame::Frame() : firstThrow{0}, secondThrow{0}, eachFrameS
 }
 
 /*
-store the first throw score for each frame
+set first throw score for each frame
 */
 bool BowlingGameNM::Frame::Frame::setFirstThrowScore(const uint16_t &throwValue)
 {
-    if (checkScoreValue(throwValue))
+    if (checkScoreIsValid(throwValue))
 	{
         firstThrow = throwValue;
         if (throwValue == MAX_THROW_VALUE)
@@ -26,7 +26,7 @@ bool BowlingGameNM::Frame::Frame::setFirstThrowScore(const uint16_t &throwValue)
 }
 
 /*
-get the first throw score for each frame
+get first throw score for each frame
 */
 const uint16_t & BowlingGameNM::Frame::Frame::getFirstThrowScore() const
 {
@@ -38,7 +38,7 @@ set the second throw score for each frame
 */
 bool BowlingGameNM::Frame::Frame::setSecondThrowScore(const uint16_t &throwValue)
 {
-    if (checkScoreValue(throwValue))
+    if (checkScoreIsValid(throwValue))
 	{
         secondThrow = throwValue;
         if (firstThrow == LEAST_THROW_VALUE && secondThrow == MAX_THROW_VALUE)
@@ -75,7 +75,6 @@ bool BowlingGameNM::Frame::Frame::setFrameScore(const uint16_t &frameScore)
 	return false;
 }
 
-
 /*
 get each the frame score
 */
@@ -85,7 +84,7 @@ const uint16_t & BowlingGameNM::Frame::Frame::getFrameScore() const
 }
 
 /*
-set the third throw score
+set third throw score
 */
 bool BowlingGameNM::Frame::Frame::setThirdThrowScore(const uint16_t &throwValue)
 {
@@ -93,7 +92,7 @@ bool BowlingGameNM::Frame::Frame::setThirdThrowScore(const uint16_t &throwValue)
 }
 
 /*
-get the third throw score
+get third throw score
 */
 uint16_t BowlingGameNM::Frame::Frame::getThirdThrowScore() const
 {
@@ -103,7 +102,7 @@ uint16_t BowlingGameNM::Frame::Frame::getThirdThrowScore() const
 /*
 check the throw score is valid or not
 */
-bool BowlingGameNM::Frame::Frame::checkScoreValue(const uint8_t &throwValue)
+bool BowlingGameNM::Frame::Frame::checkScoreIsValid(const uint8_t &throwValue)
 {
     if ((throwValue < LEAST_THROW_VALUE) || (throwValue > MAX_THROW_VALUE))
 	{
@@ -124,12 +123,12 @@ Set third throw score
 */
 bool BowlingGameNM::Frame::LastTenthFrame::setThirdThrowScore(const uint16_t &throwValue)
 {
-    if (checkScoreValue(throwValue))
+    if (checkScoreIsValid(throwValue))
 	{
 		m_thirdThrow = throwValue;
         if (throwValue == MAX_THROW_VALUE)
 		{
-            isStrikeFlag = true; // if 10 pin cleared in first throw, set strike in that frame
+            isStrikeFlag = true; // if 10 pins cleared in first throw, set strike in that frame
 		}
 		return true;
 	}

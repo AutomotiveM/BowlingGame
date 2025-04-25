@@ -38,4 +38,3 @@ TEST_F(PlayerFunctionTest, setPlayerName)
     EXPECT_TRUE(isName);
     EXPECT_EQ(player->playerName(), name);
 }
-

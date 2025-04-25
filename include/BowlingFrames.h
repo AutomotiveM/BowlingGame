@@ -10,34 +10,49 @@ namespace BowlingGameNM::Frame
 		virtual ~Frame() = default;
 
 		/*
-        store the first throw score for each frame
+        set the first throw score for each frame
 		*/
         virtual bool setFirstThrowScore(const uint16_t &throwValue);
 
 		/*
-        return score value of first throw for each frame
+        get score value of first throw for each frame
 		*/
         virtual const uint16_t &getFirstThrowScore() const;
 
 		/*
-        store the second throw score for each frame
+        set the second throw score for each frame
 		*/
         virtual bool setSecondThrowScore(const uint16_t &throwValue);
 
 		/*
-        \return score value of second throw for each frame
+        \get score value of second throw for each frame
 		*/
         virtual const uint16_t &getSecondThrowScore() const;
 
 		/*
-        store each the frame score
+        set each frame score
 		*/
 		virtual bool setFrameScore(const uint16_t &frameScore);
 
 		/*
-        return score value of each frame
+        get score value of each frame
 		*/
 		virtual const uint16_t &getFrameScore() const;
+
+		/*
+        set third throw score of 10th frame
+		*/
+        virtual bool setThirdThrowScore(const uint16_t &throwValue);
+
+		/*
+        return score value of third roll of 10th frame
+		*/
+        virtual uint16_t getThirdThrowScore() const;
+
+		/*
+        check throw score is valid or not
+		*/
+        bool checkScoreIsValid(const uint8_t &throwValue);
 
 		/*
 		 check is frame is strike frame
@@ -48,21 +63,6 @@ namespace BowlingGameNM::Frame
 		check is frame is spare in each frame
 		*/
 		virtual const bool& isSpare() const;
-
-		/*
-        store the third throw score of 10th frame
-		*/
-        virtual bool setThirdThrowScore(const uint16_t &throwValue);
-
-		/*
-        return score value of third roll of 10th frame
-		*/
-        virtual uint16_t getThirdThrowScore() const;
-
-		/*
-        check the throw score is valid or not
-		*/
-        bool checkScoreValue(const uint8_t &throwValue);
 
 
 	protected:
@@ -75,18 +75,18 @@ namespace BowlingGameNM::Frame
 
     class LastTenthFrame : public Frame
 	{
-        //This is special 10th frame having 3 rolls.
+        //Tenth frame is having extra 3rd throw
 	public:
         LastTenthFrame();
         ~LastTenthFrame() = default;
 
 		/*
-        store the third roll score of 10th frame
+        store the third throw score of 10th frame
 		*/
         bool setThirdThrowScore(const uint16_t &throwValue);
 
 		/*
-        return score value of third roll of 10th frame
+        return score value of third throw of 10th frame
 		*/
         uint16_t getThirdThrowScore() const;
 

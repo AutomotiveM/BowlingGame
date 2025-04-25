@@ -26,9 +26,9 @@ protected:
 @NAME : check all zero input. Output should be zero
 @ASN : AM
 */
-TEST_F(PlayerFunctionTest, checkAllZero)
+TEST_F(PlayerFunctionTest, checkAllZeroInput)
 {
-    printf("******* checkAllZero \n");
+    printf("******* checkAllZeroInput \n");
     // Precondition
     std::vector<int> score{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     int throwNumber = 1 ;
@@ -43,14 +43,14 @@ TEST_F(PlayerFunctionTest, checkAllZero)
     for (; frameIndex < MAX_NUMBER_OF_FRAME - 1; frameIndex++)
     {
         throw1Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw1Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw1Score);
         EXPECT_TRUE(success);
         if (throw1Score < MAX_THROW_VALUE)
         {
             scoreIndex++;
             throwNumber++;
             throw2Score = score[scoreIndex];
-            success = player->setthrowValue(throwNumber, frameIndex, throw2Score);
+            success = player->setAllthrowValue(throwNumber, frameIndex, throw2Score);
             EXPECT_TRUE(success);
         }
         scoreIndex++;
@@ -60,12 +60,12 @@ TEST_F(PlayerFunctionTest, checkAllZero)
     if (frameIndex == (MAX_NUMBER_OF_FRAME - 1))
     {
         throw1Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw1Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw1Score);
         EXPECT_TRUE(success);
         scoreIndex++;
         throwNumber++;
         throw2Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw2Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw2Score);
         EXPECT_TRUE(success);
 
         if (throw1Score == MAX_THROW_VALUE || (throw2Score + throw1Score) == MAX_THROW_VALUE)
@@ -73,7 +73,7 @@ TEST_F(PlayerFunctionTest, checkAllZero)
             scoreIndex++;
             throwNumber++;
             throw3Score = score[scoreIndex];
-            success = player->setthrowValue(throwNumber, frameIndex, throw3Score);
+            success = player->setAllthrowValue(throwNumber, frameIndex, throw3Score);
             EXPECT_TRUE(success);
         }
     }
@@ -104,14 +104,14 @@ TEST_F(PlayerFunctionTest, checkAllMaxValue)
     for (; frameIndex < MAX_NUMBER_OF_FRAME - 1; frameIndex++)
     {
         throw1Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw1Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw1Score);
         EXPECT_TRUE(success);
         if (throw1Score < MAX_THROW_VALUE)
         {
             scoreIndex++;
             throwNumber++;
             throw2Score = score[scoreIndex];
-            success = player->setthrowValue(throwNumber, frameIndex, throw2Score);
+            success = player->setAllthrowValue(throwNumber, frameIndex, throw2Score);
             EXPECT_TRUE(success);
         }
         scoreIndex++;
@@ -121,12 +121,12 @@ TEST_F(PlayerFunctionTest, checkAllMaxValue)
     if (frameIndex == (MAX_NUMBER_OF_FRAME - 1))
     {
         throw1Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw1Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw1Score);
         EXPECT_TRUE(success);
         scoreIndex++;
         throwNumber++;
         throw2Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw2Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw2Score);
         EXPECT_TRUE(success);
 
         if (throw1Score == MAX_THROW_VALUE || (throw2Score + throw1Score) == MAX_THROW_VALUE)
@@ -134,7 +134,7 @@ TEST_F(PlayerFunctionTest, checkAllMaxValue)
             scoreIndex++;
             throwNumber++;
             throw3Score = score[scoreIndex];
-            success = player->setthrowValue(throwNumber, frameIndex, throw3Score);
+            success = player->setAllthrowValue(throwNumber, frameIndex, throw3Score);
             EXPECT_TRUE(success);
         }
     }
@@ -166,14 +166,14 @@ TEST_F(PlayerFunctionTest, calculateTotalScore)
     for (; frameIndex < MAX_NUMBER_OF_FRAME - 1; frameIndex++)
     {
         throw1Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw1Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw1Score);
         EXPECT_TRUE(success);
         if (throw1Score < MAX_THROW_VALUE)
         {
             scoreIndex++;
             throwNumber++;
             throw2Score = score[scoreIndex];
-            success = player->setthrowValue(throwNumber, frameIndex, throw2Score);
+            success = player->setAllthrowValue(throwNumber, frameIndex, throw2Score);
             EXPECT_TRUE(success);
         }
         scoreIndex++;
@@ -183,12 +183,12 @@ TEST_F(PlayerFunctionTest, calculateTotalScore)
     if (frameIndex == (MAX_NUMBER_OF_FRAME - 1))
     {
         throw1Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw1Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw1Score);
         EXPECT_TRUE(success);
         scoreIndex++;
         throwNumber++;
         throw2Score = score[scoreIndex];
-        success = player->setthrowValue(throwNumber, frameIndex, throw2Score);
+        success = player->setAllthrowValue(throwNumber, frameIndex, throw2Score);
         EXPECT_TRUE(success);
 
         if (throw1Score == MAX_THROW_VALUE || (throw2Score + throw1Score) == MAX_THROW_VALUE)
@@ -196,7 +196,7 @@ TEST_F(PlayerFunctionTest, calculateTotalScore)
             scoreIndex++;
             throwNumber++;
             throw3Score = score[scoreIndex];
-            success = player->setthrowValue(throwNumber, frameIndex, throw3Score);
+            success = player->setAllthrowValue(throwNumber, frameIndex, throw3Score);
             EXPECT_TRUE(success);
         }
     }

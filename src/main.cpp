@@ -1,5 +1,4 @@
-// BowlingGame.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// BowlingGame.cpp : This file contains the 'main' function.This is driver code.
 
 #include <iostream>
 #include "MyPlayer.h"
@@ -8,7 +7,7 @@
 
 int main(int argc, char **argv)
 {
-    /* uncommnet this line if you wnat to run the gtest */
+    /* uncommnet this line if you want to run the gtest */
     //::testing::InitGoogleTest(&argc, argv);
     std::cout << "Bowling Game!!!\n";
     BowlingGameNM::BowlingGame bowlingAppObj;
@@ -18,10 +17,7 @@ int main(int argc, char **argv)
     {
         std::cout<<"\nPlayer "<<player1_Name<<" "<<" is playing bowling game"<<"\n";
     }
-
-    //You can add any number of players here.
     bowlingAppObj.run();
-    return 0;
 
     //return RUN_ALL_TESTS();
 
